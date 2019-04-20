@@ -1,11 +1,11 @@
 package com.danielyoon.foodfourmood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -29,7 +29,7 @@ public class SplashScreen extends AppCompatActivity {
         public void run() {
             try {
                 sleep(1000 * SLEEP_TIMER);
-            } catch(InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 

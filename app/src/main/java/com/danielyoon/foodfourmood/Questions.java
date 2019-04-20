@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class Questions {
 
     private String[] moodQuestions = {
-      "How did you wake up this morning?",
-      "What interests you the most out of these?",
-      "What type of music would you listen to right now?",
-      "Would you read any of these?",
+            "How did you wake up this morning?",
+            "What interests you the most out of these?",
+            "What type of music would you listen to right now?",
+            "Would you read any of these?",
             "Feel like meeting people today?",
             "How was your appetite recently?",
             "How old do you feel right now?",
