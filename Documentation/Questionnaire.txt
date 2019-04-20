@@ -1,0 +1,82 @@
+Colors and the mood it represents:
+
+1. Red - Excited/Adventurous
+2. Blue - Calm/Relaxed
+3. Yellow - Imaginative
+4. Green - Normal
+5. Black - Stressed/Nervous/Tense
+6. White - Bored/Frustrated
+7. Purple - Clarity/Sensual
+8. Brown - Restless
+9. Orange - Daring/Stimulating (Part of red)
+10. Gray - Anxious
+
+Each question should be balanced, so that once a certain question is asked and is branched off into a question depending on
+the color, they're able to always come back to white, or go deeper, or mesh with another color.
+
+ie, first question would go towards red, and a red question would ask something like, "What would you do with the energy?"
+Go hiking? (Would make it more red), Study/Work hard? (This would be red + yellow so orange?), Rest some more? (Blue answer,
+so it'd be purple), or Do nothing (Results in red + white, which will be pink, but current mood = white, which means they lied
+in the beginning about their mood. Energetic =/= do nothing).
+
+Some questions we can ask: (Not in order)
+1. How did you wake up this morning?
+  a. Energetic! (Go towards red)
+  b. More tired than before (Go towards yellow) 
+  c. Same old same old (Go towards blue)
+  d. Hungry (Would keep the background at white)
+
+2. What interests you the most out of these? 
+  a. Exercising (Red)
+  b. Eating (Blue)
+  c. Sleeping (Yellow)
+  d. Something spontaneous! (White)
+  
+3. What type of music would you listen to right now?
+  a. Rock/rap/pop (Red)
+  b. Blues/Jazz/Ballad (Blue)
+  c. Classical (White)
+  d. Music of silence (Yellow)
+  
+4. Would you read any of these?
+  a. A textbook (White)
+  b. Magazine (Red)
+  c. Casual book (Yellow)
+  d. Who reads? (Blue)
+
+5. Feel like meeting people today?
+  a. Yes! (Red)
+  b. Nope (Blue)
+  c. I'm indifferent to it (Yellow)
+  d. Only my close friends (White)
+
+6. How was your appetite recently?
+  a. I've been getting fat (Red)
+  b. Just 3 meals a day (White)
+  c. Haven't really been eating (Yellow)
+  d. No appetite at all (Blue)
+  
+7. How old do you feel right now?
+  a. Too old to be alive (Blue)
+  b. Young and wild! (Red)
+  c. Just about the right age (White)
+  d. It depends (Yellow)
+  
+8. Best vacation destination right now?
+  a. Home! (Yellow)
+  b. Somewhere warm and sunny (Red)
+  c. Somewhere cold and snowy (Blue)
+  d. I'm content where I am (White)
+  
+9. Mode of transportation?
+  a. Lion (Red)
+  b. Horse (Yellow)
+  c. Car (White)
+  d. Walking (Blue)
+
+10. How was this experience?
+  a. Great! (Red)
+  b. Horrible (Blue)
+  c. Meh (White)
+  d. Could've been better! (Yellow)
+  

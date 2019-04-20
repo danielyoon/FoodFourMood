@@ -1,0 +1,22 @@
+1. Google Maps API that can pull data depending on cuisine
+    A. Maybe suggested food, based on popularity or occurrence on Yelp reviews or Google reviews
+    B. Shake function that'll refresh the list given new 4, or our "personal" choice
+    C. Offline functionality? 
+    D. Number indicators, and fragment view of said restaurants
+    
+2. Clean UI
+    A. Animations for transition
+    B. Splash screen
+    C. Ending segment
+    D. Loading screen
+    
+3. Mood to restaurant picker
+
+4. IOS functionality
+
+5. Comment code? 
+
+6. Documentation
+    A. Fix GitHub folders
+    B. Commit correctly
+    C. Clean readme
