@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +16,12 @@ import java.util.Collections;
 public class QuestionActivity extends AppCompatActivity {
 
     private Questions mQuestions = new Questions();
+    /*
+     * Create a checker for each color and change gradient accordingly
+     *   Make gradient backgrounds
+     * At the end, make a list of restaurants viable for each mood
+     * @Maps make an array of viable restaurants and their pointers
+     * */
 
     public static int numOfReds = 0;
     public static int numOfBlues = 0;
@@ -22,11 +29,20 @@ public class QuestionActivity extends AppCompatActivity {
     public static int numOfWhites = 0;
     public static int questionNum = 0;
 
+    private String redValue = "##ff4747";
+    private String blueValue = "#0471ff";
+    private String yellowValue = "#fff943";
+    private String whiteValue = "#ffffff";
+
     private TextView question;
     private Button answer1;
     private Button answer2;
     private Button answer3;
     private Button answer4;
+    private ConstraintLayout layout = findViewById(R.id.theLayout);
+
+
+    XMLReader changeColors = new XMLReader();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +68,23 @@ public class QuestionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mQuestions.getColor(answer1.getText().toString()).equals("r")) {
                     numOfReds++;
+                    changeColors.editColors(redValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer1.getText().toString()).equals("b")) {
                     numOfBlues++;
+                    changeColors.editColors(blueValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer1.getText().toString()).equals("y")) {
                     numOfYellows++;
+                    changeColors.editColors(yellowValue);
+                    colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
+                    changeColors.editColors(whiteValue);
+                    colorChecker();
                     updateQuestion();
                 }
             }
@@ -71,15 +95,23 @@ public class QuestionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mQuestions.getColor(answer2.getText().toString()).equals("r")) {
                     numOfReds++;
+                    changeColors.editColors(redValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer2.getText().toString()).equals("b")) {
                     numOfBlues++;
+                    changeColors.editColors(blueValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer2.getText().toString()).equals("y")) {
                     numOfYellows++;
+                    changeColors.editColors(yellowValue);
+                    colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
+                    changeColors.editColors(whiteValue);
+                    colorChecker();
                     updateQuestion();
                 }
             }
@@ -90,15 +122,23 @@ public class QuestionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mQuestions.getColor(answer3.getText().toString()).equals("r")) {
                     numOfReds++;
+                    changeColors.editColors(redValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer3.getText().toString()).equals("b")) {
                     numOfBlues++;
+                    changeColors.editColors(blueValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer3.getText().toString()).equals("y")) {
                     numOfYellows++;
+                    changeColors.editColors(yellowValue);
+                    colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
+                    changeColors.editColors(whiteValue);
+                    colorChecker();
                     updateQuestion();
                 }
             }
@@ -109,15 +149,23 @@ public class QuestionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mQuestions.getColor(answer4.getText().toString()).equals("r")) {
                     numOfReds++;
+                    changeColors.editColors(redValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer4.getText().toString()).equals("b")) {
                     numOfBlues++;
+                    changeColors.editColors(blueValue);
+                    colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer4.getText().toString()).equals("y")) {
                     numOfYellows++;
+                    changeColors.editColors(yellowValue);
+                    colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
+                    changeColors.editColors(whiteValue);
+                    colorChecker();
                     updateQuestion();
                 }
             }
@@ -141,5 +189,15 @@ public class QuestionActivity extends AppCompatActivity {
         answer4.setText(mQuestions.getChoices(questionNum, randomNumbers.get(3)));
 
         questionNum++;
+    }
+
+    public void colorChecker() {
+        if (numOfBlues == 7 || numOfYellows == 7 || numOfWhites == 7 || numOfReds == 7) {
+            startActivity(new Intent(QuestionActivity.this, MapsActivity.class));
+        } else if (numOfReds + numOfWhites + numOfYellows + numOfBlues == 10){
+            startActivity(new Intent(QuestionActivity.this, MapsActivity.class));
+        } else {
+            return;
+        }
     }
 }
