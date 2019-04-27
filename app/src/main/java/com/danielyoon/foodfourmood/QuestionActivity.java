@@ -16,12 +16,6 @@ import java.util.Collections;
 public class QuestionActivity extends AppCompatActivity {
 
     private Questions mQuestions = new Questions();
-    /*
-     * Create a checker for each color and change gradient accordingly
-     *   Make gradient backgrounds
-     * At the end, make a list of restaurants viable for each mood
-     * @Maps make an array of viable restaurants and their pointers
-     * */
 
     public static int numOfReds = 0;
     public static int numOfBlues = 0;
@@ -39,8 +33,6 @@ public class QuestionActivity extends AppCompatActivity {
     private Button answer2;
     private Button answer3;
     private Button answer4;
-    private ConstraintLayout layout = findViewById(R.id.theLayout);
-
 
     XMLReader changeColors = new XMLReader();
 
@@ -48,6 +40,7 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        final ConstraintLayout questionBackground = findViewById(R.id.activity_question);
 
         question = findViewById(R.id.question);
         answer1 = findViewById(R.id.Q1);
@@ -69,21 +62,25 @@ public class QuestionActivity extends AppCompatActivity {
                 if (mQuestions.getColor(answer1.getText().toString()).equals("r")) {
                     numOfReds++;
                     changeColors.editColors(redValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer1.getText().toString()).equals("b")) {
                     numOfBlues++;
                     changeColors.editColors(blueValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer1.getText().toString()).equals("y")) {
                     numOfYellows++;
                     changeColors.editColors(yellowValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
                     changeColors.editColors(whiteValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 }
@@ -96,21 +93,25 @@ public class QuestionActivity extends AppCompatActivity {
                 if (mQuestions.getColor(answer2.getText().toString()).equals("r")) {
                     numOfReds++;
                     changeColors.editColors(redValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer2.getText().toString()).equals("b")) {
                     numOfBlues++;
                     changeColors.editColors(blueValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer2.getText().toString()).equals("y")) {
                     numOfYellows++;
                     changeColors.editColors(yellowValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
                     changeColors.editColors(whiteValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 }
@@ -123,21 +124,25 @@ public class QuestionActivity extends AppCompatActivity {
                 if (mQuestions.getColor(answer3.getText().toString()).equals("r")) {
                     numOfReds++;
                     changeColors.editColors(redValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer3.getText().toString()).equals("b")) {
                     numOfBlues++;
                     changeColors.editColors(blueValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer3.getText().toString()).equals("y")) {
                     numOfYellows++;
                     changeColors.editColors(yellowValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
                     changeColors.editColors(whiteValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 }
@@ -150,28 +155,30 @@ public class QuestionActivity extends AppCompatActivity {
                 if (mQuestions.getColor(answer4.getText().toString()).equals("r")) {
                     numOfReds++;
                     changeColors.editColors(redValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer4.getText().toString()).equals("b")) {
                     numOfBlues++;
                     changeColors.editColors(blueValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer4.getText().toString()).equals("y")) {
                     numOfYellows++;
                     changeColors.editColors(yellowValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
                     changeColors.editColors(whiteValue);
+                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
                     colorChecker();
                     updateQuestion();
                 }
             }
         });
-
-
     }
 
     public void updateQuestion() {
@@ -194,7 +201,7 @@ public class QuestionActivity extends AppCompatActivity {
     public void colorChecker() {
         if (numOfBlues == 7 || numOfYellows == 7 || numOfWhites == 7 || numOfReds == 7) {
             startActivity(new Intent(QuestionActivity.this, MapsActivity.class));
-        } else if (numOfReds + numOfWhites + numOfYellows + numOfBlues == 10){
+        } else if (numOfReds + numOfWhites + numOfYellows + numOfBlues == 10) {
             startActivity(new Intent(QuestionActivity.this, MapsActivity.class));
         } else {
             return;

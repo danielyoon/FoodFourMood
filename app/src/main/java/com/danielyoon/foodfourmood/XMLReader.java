@@ -1,8 +1,6 @@
 package com.danielyoon.foodfourmood;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -20,11 +18,11 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 public class XMLReader {
-    private static String currentColor;
-    private static String previousColor;
-    private String whiteColor = "#ffffff";
+    private static String[] array = new String[10];
+    private static int index = 0;
 
     public XMLReader() {
+        array[index] = "#FFFFFF";
     }
 
     public void editColors(String x) {
@@ -52,16 +50,22 @@ public class XMLReader {
     }
 
     public static void updateElementValue(Document doc, String x) {
-        NodeList colors = doc.getElementsByTagName("Colors");
-        Element emp = null;
-        for (int i = 0; i < colors.getLength(); i++) {
-            emp = (Element) colors.item(i);
-            Node startColor = emp.getElementsByTagName("startcolor").item(0).getFirstChild();
-            Node centerColor = emp.getElementsByTagName("centercolor").item(0).getFirstChild();
-            Node endcolor = emp.getElementsByTagName("endcolor").item(0).getFirstChild();
-            startColor.setNodeValue(startColor.setNodeValue("android:startColor=" + ));
-            centerColor.setNodeValue(centerColor.setNodeValue("android:centerColor=" + ));
-            endcolor.setNodeValue(endcolor.setNodeValue("android:endColor=" + ));
+        int i = 0;
+        if (index == 0) {
+            NodeList center = doc.getElementsByTagName("centerColor");
+            center.item(i).setTextContent("android:centerColor=" + x);
+            index++;
+            return;
+        } else {
+            String newColor = combineColors(array[index], x);
+            NodeList start = doc.getElementsByTagName("startColor");
+            start.item(i).setTextContent("android:startColor=" + x);
+            NodeList center = doc.getElementsByTagName("centerColor");
+            center.item(i).setTextContent("android:centerColor=" + newColor);
+            NodeList end = doc.getElementsByTagName("endColor");
+            end.item(i).setTextContent("android:endColor=" + array[index]);
+            ++index;
+            array[index] = newColor;
         }
     }
 
