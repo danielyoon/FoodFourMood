@@ -9,7 +9,7 @@ Our application can run in either Android Studio after forking the project, or v
 ### Prerequisites
 
 ```
-Android phone (Marshmallow or higher)
+Android phone (Jelly Bean or higher)
 Internet connection
 Google account
 ```
