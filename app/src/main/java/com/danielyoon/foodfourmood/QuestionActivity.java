@@ -1,12 +1,18 @@
 package com.danielyoon.foodfourmood;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -17,15 +23,16 @@ public class QuestionActivity extends AppCompatActivity {
 
     private Questions mQuestions = new Questions();
 
-    public static int numOfReds = 0;
-    public static int numOfBlues = 0;
-    public static int numOfYellows = 0;
-    public static int numOfWhites = 0;
-    public static int questionNum = 0;
+    private static int numOfReds = 0;
+    private static int numOfBlues = 0;
+    private static int numOfYellows = 0;
+    private static int numOfWhites = 0;
+    private static int questionNum = 0;
+    private static int[] colors = new int[4];
 
-    private String redValue = "##ff4747";
-    private String blueValue = "#0471ff";
-    private String yellowValue = "#fff943";
+    private String redValue = "#800000";
+    private String blueValue = "#003366";
+    private String yellowValue = "#ffff66";
     private String whiteValue = "#ffffff";
 
     private TextView question;
@@ -34,7 +41,6 @@ public class QuestionActivity extends AppCompatActivity {
     private Button answer3;
     private Button answer4;
 
-    XMLReader changeColors = new XMLReader();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,31 +62,45 @@ public class QuestionActivity extends AppCompatActivity {
 
         updateQuestion();
 
+        final Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         answer1.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 if (mQuestions.getColor(answer1.getText().toString()).equals("r")) {
                     numOfReds++;
-                    changeColors.editColors(redValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(redValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer1.getText().toString()).equals("b")) {
                     numOfBlues++;
-                    changeColors.editColors(blueValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(blueValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer1.getText().toString()).equals("y")) {
                     numOfYellows++;
-                    changeColors.editColors(yellowValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(yellowValue));
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
-                    changeColors.editColors(whiteValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(whiteValue));
                     colorChecker();
                     updateQuestion();
                 }
@@ -88,30 +108,27 @@ public class QuestionActivity extends AppCompatActivity {
         });
 
         answer2.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 if (mQuestions.getColor(answer2.getText().toString()).equals("r")) {
                     numOfReds++;
-                    changeColors.editColors(redValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(redValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer2.getText().toString()).equals("b")) {
                     numOfBlues++;
-                    changeColors.editColors(blueValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(blueValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer2.getText().toString()).equals("y")) {
                     numOfYellows++;
-                    changeColors.editColors(yellowValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(yellowValue));
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
-                    changeColors.editColors(whiteValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(whiteValue));
                     colorChecker();
                     updateQuestion();
                 }
@@ -119,30 +136,27 @@ public class QuestionActivity extends AppCompatActivity {
         });
 
         answer3.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 if (mQuestions.getColor(answer3.getText().toString()).equals("r")) {
                     numOfReds++;
-                    changeColors.editColors(redValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(redValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer3.getText().toString()).equals("b")) {
                     numOfBlues++;
-                    changeColors.editColors(blueValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(blueValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer3.getText().toString()).equals("y")) {
                     numOfYellows++;
-                    changeColors.editColors(yellowValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(yellowValue));
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
-                    changeColors.editColors(whiteValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(whiteValue));
                     colorChecker();
                     updateQuestion();
                 }
@@ -150,30 +164,27 @@ public class QuestionActivity extends AppCompatActivity {
         });
 
         answer4.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 if (mQuestions.getColor(answer4.getText().toString()).equals("r")) {
                     numOfReds++;
-                    changeColors.editColors(redValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(redValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer4.getText().toString()).equals("b")) {
                     numOfBlues++;
-                    changeColors.editColors(blueValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(blueValue));
                     colorChecker();
                     updateQuestion();
                 } else if (mQuestions.getColor(answer4.getText().toString()).equals("y")) {
                     numOfYellows++;
-                    changeColors.editColors(yellowValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(yellowValue));
                     colorChecker();
                     updateQuestion();
                 } else {
                     numOfWhites++;
-                    changeColors.editColors(whiteValue);
-                    questionBackground.setBackgroundResource(R.drawable.gradient_background);
+                    questionBackground.setBackground(changeBackground(whiteValue));
                     colorChecker();
                     updateQuestion();
                 }
@@ -195,7 +206,10 @@ public class QuestionActivity extends AppCompatActivity {
         answer3.setText(mQuestions.getChoices(questionNum, randomNumbers.get(2)));
         answer4.setText(mQuestions.getChoices(questionNum, randomNumbers.get(3)));
 
-        questionNum++;
+        ++questionNum;
+        if (questionNum == 10) {
+            startActivity(new Intent(QuestionActivity.this, MapsActivity.class));
+        }
     }
 
     public void colorChecker() {
@@ -205,6 +219,42 @@ public class QuestionActivity extends AppCompatActivity {
             startActivity(new Intent(QuestionActivity.this, MapsActivity.class));
         } else {
             return;
+        }
+    }
+
+    public static String combineColors(String previousColor, String currentColor) {
+        StringBuilder sb = new StringBuilder("#");
+        for (int i = 0; i < 3; i++) {
+            String sub1 = previousColor.substring(1 + 2 * i, 3 + 2 * i);
+            String sub2 = currentColor.substring(1 + 2 * i, 3 + 2 * i);
+            int v1 = Integer.parseInt(sub1, 16);
+            int v2 = Integer.parseInt(sub2, 16);
+            int v = (v1 + v2) / 2;
+            String sub = String.format("%02X", v);
+            sb.append(sub);
+        }
+        String result = sb.toString();
+        return result;
+    }
+
+    public GradientDrawable changeBackground(String newColor) {
+        if (questionNum == 0) {
+            colors[0] = Color.parseColor(whiteValue);
+            colors[1] = Color.parseColor(newColor);
+            colors[2] = Color.parseColor(whiteValue);
+
+            GradientDrawable gd = new GradientDrawable(GradientDrawable.Orientation.TR_BL, colors);
+
+            return gd;
+        } else {
+            String hexColor = String.format("#%06X", (0xFFFFFF & colors[1]));
+            colors[0] = Color.parseColor(newColor);
+            colors[2] = colors[1];
+            colors[1] = Color.parseColor(combineColors(hexColor, newColor));
+
+            GradientDrawable gd = new GradientDrawable(GradientDrawable.Orientation.TR_BL, colors);
+
+            return gd;
         }
     }
 }
