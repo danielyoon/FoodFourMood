@@ -32,7 +32,7 @@ or
 
 ## Authors
 
-* **Daniel Yoon** - *Initial work*
+* **Daniel Yoon** - *Lead Android Developer*
 
 ## License
 
