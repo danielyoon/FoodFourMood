@@ -11,7 +11,7 @@ Our application can run in either Android Studio after forking the project, or v
 ```
 Android phone (Jelly Bean or higher)
 Internet connection
-Google account
+Location enabled
 ```
 
 ### Installing
