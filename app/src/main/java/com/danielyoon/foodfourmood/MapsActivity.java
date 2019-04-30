@@ -11,9 +11,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.net.PlacesClient;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    // Initialize Places.
+    Places.initialize(getApplicationContext(), AIzaSyDen-SuqCvZUO4CRoLkfeuslx4ct_1KKLY);
+
+    // Create a new Places client instance.
+    PlacesClient placesClient = Places.createClient(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
